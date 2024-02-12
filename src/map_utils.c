@@ -37,6 +37,15 @@ int	line_empty(char *str)
 	return (0);
 }
 
+int	check_check(int n, char c, t_game *game)
+{
+	if (c == ',' && n == 4)
+		error("Error wrong placement for comma", game);
+	if (c == ',')
+		return (n + 1);
+	return (n);
+}
+
 int	check_fc(char *str, char cf, t_game *game)
 {
 	int	nb;
@@ -50,17 +59,18 @@ int	check_fc(char *str, char cf, t_game *game)
 	i++;
 	while (str[i])
 	{
-		if ((str[i] >= 65 && str[i] <= 90) || (str[i] >= 97 && str[i] <= 122))
-			error("Error wrong character", game);
+		if(ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
+			error("Error wrong character in floor/ceiling", game);
 		if (ft_isdigit(str[i]) == 0)
 		{
 			nb++;
 			while (ft_isdigit(str[i]) == 0)
 				i++;
 		}
+		nb = check_check(nb, str[i], game);
 		i++;
 	}
-	if (nb != 3)
+	if (nb != 5)
 		error("Error wrong number of arguments in floor/ceiling", game);
 	return (0);
 }
@@ -74,3 +84,4 @@ void	check_rgb(t_game *game)
 		|| game->floor_r > 255 || game->floor_g > 255 || game->floor_b > 255)
 		error("Error wrong RGB value", game);
 }
+

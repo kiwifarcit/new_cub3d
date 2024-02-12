@@ -12,27 +12,27 @@
 
 #include "../includes/cub3d.h"
 
-static int	ft_isspace(char c);
 static int	int_(const char *str);
 
 int	ft_atoi(const char *str)
 {
 	int	nb_min;
 	int	signe;
+	int	i = 0;
 
 	nb_min = 0;
 	signe = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '+' || *str == '-')
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (*str == '-')
+		if (str[i] == '-')
 			nb_min++;
-		str++;
+		i++;
 	}
 	if (nb_min % 2 != 0)
 		signe = -1;
-	return (int_(str) * signe);
+	return (int_(&str[i]) * signe);
 }
 
 static int	int_(const char *str)
@@ -50,7 +50,7 @@ static int	int_(const char *str)
 	return (result);
 }
 
-static int	ft_isspace(char c)
+int	ft_isspace(char c)
 {
 	return (c == '\t'
 		|| c == '\n'

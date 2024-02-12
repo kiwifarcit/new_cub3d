@@ -38,7 +38,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc $(GFLAG) $(OBJ) -o $(NAME) $(MLX)
+	gcc $(GFLAG) $(OBJ) -o $(NAME)
 
 .c.o:
 	gcc $(GFLAG) -c -o $@ $< -I include

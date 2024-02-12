@@ -38,6 +38,7 @@ int	floor_utils_three(t_game *game, int i, char *number, char *str)
 	if (str[i] == '0' && game->j_rgb == 0)
 		return (i + 1);
 	number[game->j_rgb] = str[i];
+	number[game->j_rgb + 1] = '\0';
 	i++;
 	game->j_rgb = floor_utils_two(game, number);
 	return (i);
@@ -64,6 +65,8 @@ int	ft_floor(char *str, int i, t_game *game, int n)
 		;
 	while (str[i] && str[i] != '\n')
 	{	
+		if(ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
+			error("Error wrong character in floor/ceiling", game);
 		while (ft_isdigit(str[i]) == 0)
 			i = floor_utils_three(game, i, number, str);
 		game->j_rgb = 0;

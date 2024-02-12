@@ -87,7 +87,7 @@ void	map(t_game *game, int i)
 	if (fd == -1)
 		error("Error could not open map", game);
 	tmp = get_next_line(fd);
-	while (n <= i || line_empty(tmp) == 1)
+	while (n < i || line_empty(tmp) == 1)
 	{
 		free(tmp);
 		tmp = get_next_line(fd);

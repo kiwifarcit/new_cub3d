@@ -29,7 +29,8 @@ int	north(char *str, int i, int n, t_game *game)
 	path = ft_strcpy(str, path, i);
 	if (open(path, O_RDONLY) != -1)
 	{
-		game->map->path_n = ft_strdup(path);
+		if (game->free_n == 0)
+			game->map->path_n = ft_strdup(path);
 		game->free_n = 1;
 		free (path);
 	}
@@ -58,7 +59,8 @@ int	south(char *str, int i, int n, t_game *game)
 	path = ft_strcpy(str, path, i);
 	if (open(path, O_RDONLY) != -1)
 	{
-		game->map->path_s = ft_strdup(path);
+		if (game->free_s == 0)
+			game->map->path_s = ft_strdup(path);
 		game->free_s = 1;
 		free (path);
 	}
@@ -87,7 +89,8 @@ int	east(char *str, int i, int n, t_game *game)
 	path = ft_strcpy(str, path, i);
 	if (open(path, O_RDONLY) != -1)
 	{
-		game->map->path_e = ft_strdup(path);
+		if (game->free_e == 0)
+			game->map->path_e = ft_strdup(path);
 		game->free_e = 1;
 		free (path);
 	}
@@ -116,7 +119,8 @@ int	west(char *str, int i, int n, t_game *game)
 	path = ft_strcpy(str, path, i);
 	if (open(path, O_RDONLY) != -1)
 	{
-		game->map->path_w = ft_strdup(path);
+		if (game->free_w == 0)
+			game->map->path_w = ft_strdup(path);
 		game->free_w = 1;
 		free (path);
 	}

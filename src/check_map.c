@@ -19,6 +19,7 @@ void	quick_check(t_game *game)
 
 	pos = 0;
 	game->map->y = 0;
+	c = game->map->map[game->map->y][game->map->x];
 	while (game->map->y_size > game->map->y)
 	{
 		game->map->x = 0;

@@ -31,6 +31,7 @@ int	zero_edges(t_game *game)
 	char	c;
 
 	game->map->y = 0;
+	c = '0';
 	while (game->map->y_size > game->map->y)
 	{
 		game->map->x = 0;
@@ -78,6 +79,8 @@ int	check_map_sides(t_game *game, char **map_tab)
 	while (i < (game->map->y_size - 1))
 	{
 		j = ft_strlen(map_tab[i]) - 1;
+		if (j < 0)
+			j = 0;
 		if (map_tab[i][j] != '1')
 			return (FAILURE);
 		i++;

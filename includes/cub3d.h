@@ -29,7 +29,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../MLX42/include/MLX42/MLX42.h"
+//# include "../MLX42/include/MLX42/MLX42.h"
 # include <math.h>
 
 typedef struct s_map
@@ -47,29 +47,9 @@ typedef struct s_map
 	char	*path_c;
 }	t_map;
 
-typedef struct s_ray
-{
-	float		angle;
-	float		y;
-	float		x;
-	float		yo;
-	float		xo;
-}	t_ray;
-
-typedef struct s_player
-{
-	float		x;
-	float		y;
-	float		angle;
-}	t_player;
-
 typedef struct s_game
 {
 	t_map		*map;
-	t_player	*player;
-	t_ray		*ray;
-	mlx_t		*mlx;
-	mlx_image_t	*img;
 	int			argc;
 	char		**argv;
 	int			floor_r;
@@ -116,5 +96,6 @@ char	*ft_strdup(char *s1);
 void	print_map(t_game *game);
 int		line_empty(char *str);
 int		check_fc(char *str, char cf, t_game *game);
+int		ft_isspace(char c);
 
 #endif
