@@ -65,7 +65,7 @@ int	ft_floor(char *str, int i, t_game *game, int n)
 		;
 	while (str[i] && str[i] != '\n')
 	{	
-		if(ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
+		if (ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
 			error("Error wrong character in floor/ceiling", game);
 		while (ft_isdigit(str[i]) == 0)
 			i = floor_utils_three(game, i, number, str);

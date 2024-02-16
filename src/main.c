@@ -67,8 +67,8 @@ void	set_value(t_game *game)
 	game->free_s = 0;
 	game->free_e = 0;
 	game->free_w = 0;
-
-	//game->j_rgb = 0;
+	game->rgb_c = 0;
+	game->rgb_f = 0;
 }
 
 int	main(int argc, char	**argv)

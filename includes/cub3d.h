@@ -64,6 +64,8 @@ typedef struct s_game
 	int			free_e;
 	int			free_w;
 	int			j_rgb;
+	int			rgb_c;
+	int			rgb_f;
 
 }	t_game;
 

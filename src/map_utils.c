@@ -59,7 +59,7 @@ int	check_fc(char *str, char cf, t_game *game)
 	i++;
 	while (str[i])
 	{
-		if(ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
+		if (ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
 			error("Error wrong character in floor/ceiling", game);
 		if (ft_isdigit(str[i]) == 0)
 		{
@@ -84,4 +84,3 @@ void	check_rgb(t_game *game)
 		|| game->floor_r > 255 || game->floor_g > 255 || game->floor_b > 255)
 		error("Error wrong RGB value", game);
 }
-

@@ -19,17 +19,17 @@ int	before_map(char *str, t_game *game, int n)
 	i = 0;
 	while (str && str[i] == ' ')
 		i++;
-	if (str && str[i] == 'N')
+	if (str && str[i] == 'N' && game->free_n != 1)
 		n = north(str, i, n, game);
-	else if (str && str[i] == 'S')
+	else if (str && str[i] == 'S' && game->free_s != 1)
 		n = south(str, i, n, game);
-	else if (str && str[i] == 'E')
+	else if (str && str[i] == 'E' && game->free_e != 1)
 		n = east(str, i, n, game);
-	else if (str && str[i] == 'W')
+	else if (str && str[i] == 'W' && game->free_w != 1)
 		n = west(str, i, n, game);
-	else if (str && str[i] == 'F')
+	else if (str && str[i] == 'F' && game->rgb_f != 1)
 		n = ft_floor(str, i, game, n);
-	else if (str && str[i] == 'C')
+	else if (str && str[i] == 'C' && game->rgb_c != 1)
 		n = ceiling(str, i, game, n);
 	else if (str[i] != '\n')
 		error("Error unknown character", game);

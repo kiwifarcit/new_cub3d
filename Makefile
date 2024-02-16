@@ -31,7 +31,7 @@ MLX = MLX42/build/libmlx42.a -L "/Users/$$USER/.brew/opt/glfw/lib/" -lglfw -lm
 
 SRC = $(addprefix src/, $(addsuffix .c, $(FILES)))
 
-GFLAG = -Wall -Wextra -Werror -fsanitize=address -g
+GFLAG = -Wall -Wextra -Werror -g
 
 OBJ = $(SRC:.c=.o)
 

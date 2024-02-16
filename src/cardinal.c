@@ -18,7 +18,7 @@ int	north(char *str, int i, int n, t_game *game)
 	int		j;
 
 	j = 0;
-	if (str[i + 1] != 'O')
+	if (game->free_n != 0 || str[i + 1] != 'O')
 		error("Error wrong character", game);
 	while (str[j])
 		j++;
@@ -27,18 +27,15 @@ int	north(char *str, int i, int n, t_game *game)
 		i++;
 	path = malloc(sizeof (char) * (j - i) + 1);
 	path = ft_strcpy(str, path, i);
-	if (open(path, O_RDONLY) != -1)
-	{
-		if (game->free_n == 0)
-			game->map->path_n = ft_strdup(path);
-		game->free_n = 1;
-		free (path);
-	}
-	else
+	if (open(path, O_RDONLY) == -1)
 	{
 		free (path);
 		error("Error north path", game);
 	}
+	if (game->free_n == 0)
+		game->map->path_n = ft_strdup(path);
+	game->free_n = 1;
+	free (path);
 	return (n + 1);
 }
 
@@ -48,7 +45,7 @@ int	south(char *str, int i, int n, t_game *game)
 	int		j;
 
 	j = 0;
-	if (str[i + 1] != 'O')
+	if (game->free_s != 0 || str[i + 1] != 'O')
 		error("Error wrong character", game);
 	while (str[j])
 		j++;
@@ -57,18 +54,15 @@ int	south(char *str, int i, int n, t_game *game)
 		i++;
 	path = malloc(sizeof (char) * (j - i) + 1);
 	path = ft_strcpy(str, path, i);
-	if (open(path, O_RDONLY) != -1)
-	{
-		if (game->free_s == 0)
-			game->map->path_s = ft_strdup(path);
-		game->free_s = 1;
-		free (path);
-	}
-	else
+	if (open(path, O_RDONLY) == -1)
 	{
 		free (path);
 		error("Error south path", game);
 	}
+	if (game->free_s == 0)
+		game->map->path_s = ft_strdup(path);
+	game->free_s = 1;
+	free (path);
 	return (n + 1);
 }
 
@@ -78,7 +72,7 @@ int	east(char *str, int i, int n, t_game *game)
 	int		j;
 
 	j = 0;
-	if (str[i + 1] != 'A')
+	if (game->free_e != 0 || str[i + 1] != 'A')
 		error("Error wrong character", game);
 	while (str[j])
 		j++;
@@ -87,18 +81,15 @@ int	east(char *str, int i, int n, t_game *game)
 		i++;
 	path = malloc(sizeof (char) * (j - i) + 1);
 	path = ft_strcpy(str, path, i);
-	if (open(path, O_RDONLY) != -1)
-	{
-		if (game->free_e == 0)
-			game->map->path_e = ft_strdup(path);
-		game->free_e = 1;
-		free (path);
-	}
-	else
+	if (open(path, O_RDONLY) == -1)
 	{
 		free (path);
 		error("Error east path", game);
 	}
+	if (game->free_e == 0)
+		game->map->path_e = ft_strdup(path);
+	game->free_e = 1;
+	free (path);
 	return (n + 1);
 }
 
@@ -108,7 +99,7 @@ int	west(char *str, int i, int n, t_game *game)
 	int		j;
 
 	j = 0;
-	if (str[i + 1] != 'E')
+	if (game->free_w != 0 || str[i + 1] != 'E')
 		error("Error wrong character", game);
 	while (str[j])
 		j++;
@@ -117,17 +108,14 @@ int	west(char *str, int i, int n, t_game *game)
 		i++;
 	path = malloc(sizeof (char) * (j - i) + 1);
 	path = ft_strcpy(str, path, i);
-	if (open(path, O_RDONLY) != -1)
-	{
-		if (game->free_w == 0)
-			game->map->path_w = ft_strdup(path);
-		game->free_w = 1;
-		free (path);
-	}
-	else
+	if (open(path, O_RDONLY) == -1)
 	{
 		free (path);
 		error("Error west path", game);
 	}
+	if (game->free_w == 0)
+		game->map->path_w = ft_strdup(path);
+	game->free_w = 1;
+	free (path);
 	return (n + 1);
 }

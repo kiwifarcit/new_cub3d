@@ -18,12 +18,12 @@ void	spaces_check(t_game *game)
 					!game->map->map[game->map->y - 1][game->map->x] ||
 						!game->map->map[game->map->y][game->map->x + 1] ||
 							!game->map->map[game->map->y][game->map->x - 1])
-					error("Zero on the edges of the map", game);
-	if (game->map->map[game->map->y + 1][game->map->x] == ' '||
-			game->map->map[game->map->y - 1][game->map->x] == ' '||
-				game->map->map[game->map->y][game->map->x + 1] == ' '||
+		error("Zero on the edges of the map", game);
+	if (game->map->map[game->map->y + 1][game->map->x] == ' ' ||
+			game->map->map[game->map->y - 1][game->map->x] == ' ' ||
+				game->map->map[game->map->y][game->map->x + 1] == ' ' ||
 					game->map->map[game->map->y][game->map->x - 1] == ' ')
-					error("Zero on the edges of the map", game);
+		error("Zero on the edges of the map", game);
 }
 
 int	zero_edges(t_game *game)

@@ -20,6 +20,8 @@ void	set_color_c(char *number, int cpt, t_game *game)
 		game->ceiling_g = ft_atoi(number);
 	if (cpt == 3)
 		game->ceiling_b = ft_atoi(number);
+	if (cpt == 3)
+		game->rgb_c = 1;
 }
 
 int	ceiling_utils_two(t_game *game, char *number)
@@ -65,7 +67,7 @@ int	ceiling(char *str, int i, t_game *game, int n)
 		;
 	while (str[i] && str[i] != '\n')
 	{	
-		if(ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
+		if (ft_isdigit(str[i]) == 1 && ft_isspace(str[i]) == 0 && str[i] != ',')
 			error("Error wrong character in floor/ceilling", game);
 		while (ft_isdigit(str[i]) == 0)
 			i = ceiling_utils_three(game, i, number, str);

@@ -18,8 +18,9 @@ int	ft_atoi(const char *str)
 {
 	int	nb_min;
 	int	signe;
-	int	i = 0;
+	int	i;
 
+	i = 0;
 	nb_min = 0;
 	signe = 1;
 	while (ft_isspace(str[i]))
